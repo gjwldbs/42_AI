@@ -45,21 +45,24 @@ class Vector:
 			v.values.append(i / other.values[j])
 			j += 1
 		return v
-	def __truediv__(self, other):
-		v = Vector([])
+	def __truediv__(self, scalar):
 		try:
-			for i in self.values:
-				v.values.append(i / float(other))
-			return v
+			if isinstance(scalar, float):
+				for i in self.values:
+					v.values.append(i / float(other))
+				return v
+			else:
+				print("TypeError:values have to be scalar")
 		except:
 			return self.__rtruediv__(other)
 	def __rmul__(self, other):
 		v = Vector([])
+		addsum = 0
 		j = 0
 		for i in self.values:
-			v.values.append(i * other.values[j])
+			addsum += i * other.values[j]
 			j += 1
-		return v
+		return addsum
 	def __mul__(self, other):
 		v = Vector([])
 		try:
@@ -74,6 +77,7 @@ v1 = Vector([0.0, 1.0, 2.0, 3.0])
 print(v1.values)
 v2 = v1 + 2
 print(v2.values)
-v3 = v1.__add__(v2)
-print(v3.values)
+v3 = v1.__rmul__(v2)
+print(v3)
+#print(v3.values)
 print(Vector([0.0, 1.0, 2.0, 3.0]).size)
