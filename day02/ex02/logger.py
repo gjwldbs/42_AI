@@ -7,7 +7,7 @@ def log(func):
 		file = open("machine.log", "a+")
 		#computer current time, return float
 		exec = time.time()
-		s = str(func).split()[1].split('.')[-1].replace('_', ' ').title()
+		s = str(func).split()[1].split('.')[1].replace('_', ' ').title()
 		file.write("(cclaude) Running: {:30}".format(s))
 		result = func(*args, **kwargs)
 		exec = time.time() - exec
