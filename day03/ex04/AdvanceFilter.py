@@ -7,7 +7,7 @@ class AdvancedFilter:
 		for i in range (imx + 1):
 			for j in range(jmx + 1):
 				if i > 0 and i < imx and j > 0 and j < jmx:
-					temp = arr[i-1:i+2,j-1:j+2]
+					temp = arr[i-1:i+1,j-1:j+1]
 					cp_arr[i][j][0] = np.sum(temp[:,:,0]) / 9
 					cp_arr[i][j][1] = np.sum(temp[:,:,1]) / 9
 					cp_arr[i][j][2] = np.sum(temp[:,:,2]) / 9
