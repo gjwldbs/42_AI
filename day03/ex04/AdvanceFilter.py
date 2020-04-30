@@ -8,9 +8,9 @@ class AdvancedFilter:
 			for j in range(jmx + 1):
 				if i > 0 and i < imx and j > 0 and j < jmx:
 					temp = arr[i-1:i+2,j-1:j+2]
-					cp_arr[i][j][0] = np.sum(arr[:,:,0]) / 9
-					cp_arr[i][j][1] = np.sum(arr[:,:,1]) / 9
-					cp_arr[i][j][2] = np.sum(arr[:,:,2]) / 9
+					cp_arr[i][j][0] = np.sum(temp[:,:,0]) / 9
+					cp_arr[i][j][1] = np.sum(temp[:,:,1]) / 9
+					cp_arr[i][j][2] = np.sum(temp[:,:,2]) / 9
 		return cp_arr
 	def gaussian_blur(self, arr):
 		cp_arr = arr.copy()
